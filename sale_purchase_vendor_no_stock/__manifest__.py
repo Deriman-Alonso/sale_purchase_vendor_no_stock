@@ -10,9 +10,11 @@
     "application": False,
     "installable": True,
     "depends": [
-        "base",
+        "base","sale"
     ],
     "data": [
+        "views/sale_order_view.xml",
+
 
     ],
 }
