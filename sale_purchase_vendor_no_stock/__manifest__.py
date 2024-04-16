@@ -5,10 +5,12 @@
     "name": "Sale Purchase Vendor No Stock",
     "version": "17.0.1.0.0",
     "category": "Category",
+    "website": "https://github.com/OCA/purchase-workflow",
     "author": "<Odoo Community Association (OCA)>",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
+<<<<<<< HEAD
     "depends": [
         "base","sale"
     ],
@@ -17,4 +19,8 @@
 
 
     ],
+=======
+    "depends": ["sale_purchase"],
+    "data": [],
+>>>>>>> Deriman-Alonso/17.0-dev
 }

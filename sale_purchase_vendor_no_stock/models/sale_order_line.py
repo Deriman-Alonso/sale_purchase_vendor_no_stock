@@ -1,5 +1,6 @@
 from odoo import api, fields, models
 
+
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
@@ -16,9 +17,7 @@ class SaleOrderLine(models.Model):
     @api.depends("product_id")
     def _compute_vendor_id_domain(self):
         for item in self:
-            domain = (
-                [("id", "in", item.product_id.variant_seller_ids.partner_id.ids)]
-            )
+            domain = [("id", "in", item.product_id.variant_seller_ids.partner_id.ids)]
             item.vendor_id_domain = domain
 
     def _prepare_procurement_values(self, group_id=False):
