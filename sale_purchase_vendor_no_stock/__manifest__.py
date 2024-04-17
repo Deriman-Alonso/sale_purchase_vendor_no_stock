@@ -10,17 +10,6 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-<<<<<<< HEAD
-    "depends": [
-        "base","sale"
-    ],
-    "data": [
-        "views/sale_order_view.xml",
-
-
-    ],
-=======
     "depends": ["sale_purchase"],
-    "data": [],
->>>>>>> Deriman-Alonso/17.0-dev
+    "data": ["views/sale_order_view.xml"],
 }
