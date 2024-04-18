@@ -10,13 +10,9 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-<<<<<<< HEAD
     "depends": ["base", "sale"],
     "data": [
+        "views/res_config_settings_view.xml",
         "views/sale_order_view.xml",
     ],
-=======
-    "depends": ["sale_purchase"],
-    "data": ["views/sale_order_view.xml"],
->>>>>>> 987265bc24adefcc39d6b692e5e276132f3fa556
 }
