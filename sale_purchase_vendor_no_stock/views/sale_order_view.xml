@@ -5,11 +5,14 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="sale_purchase_force_vendor_restrict" />
+            </field>
             <xpath
                 expr="//field[@name='order_line']/tree/field[@name='price_unit']"
                 position="before"
             >
-                <field name="vendor_id_domain" />
+                <field name="vendor_id_domain" column_invisible="1" />
                 <field
                     name="vendor_id"
                     domain="vendor_id_domain"
@@ -19,12 +22,13 @@
            </xpath>
            <xpath
                 expr="//field[@name='order_line']/form/group/group/field[@name='price_unit']"
-                position="before"
+                position="inside"
             >
-            <field name="vendor_id_domain" />
+            <field name="vendor_id_domain" column_invisible="1" />
                 <field
                     name="vendor_id"
                     domain="vendor_id_domain"
+                    readonly="'state' in ('sale', 'cancel')"
                     options='{"no_create": True}'
                 />
            </xpath>
