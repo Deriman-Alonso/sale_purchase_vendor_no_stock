@@ -3,13 +3,17 @@ from .common import TestSalePurchaseVendorNoStockBase
 
 class TestSalePurchaseVendorNoStock(TestSalePurchaseVendorNoStockBase):
     def test_misc(self):
-        self.sale_order.action_confirm()
-        purchase_orders = self.sale_order._get_purchase_orders()
-        self.assertEqual(len(purchase_orders), 1)
-        self.assertEqual(purchase_orders.partner_id, self.vendor_b)
+        self.assertEqual(len(self.product_b.seller_ids),0)
         self.assertEqual(len(self.product_a.seller_ids), 2)
         self.assertNotIn(self.vendor_a, self.product_b.seller_ids.mapped("partner_id"))
         self.assertNotIn(self.vendor_b, self.product_b.seller_ids.mapped("partner_id"))
+        import wdb; wdb.set_trace()
+        self.sale_order.action_confirm()
+        purchase_orders = self.sale_order._get_purchase_orders()
+        self.assertEqual(len(purchase_orders), 1)
+        self.assertNotIn(self.vendor_a, purchase_orders.partner_id)
+        self.assertIn(self.vendor_b, purchase_orders.partner_id)
+        self.assertEqual(purchase_orders.partner_id, self.vendor_b)
 
     def test_misc_force_vendor_restrict(self):
         self.env.company.sale_purchase_force_vendor_restrict = True

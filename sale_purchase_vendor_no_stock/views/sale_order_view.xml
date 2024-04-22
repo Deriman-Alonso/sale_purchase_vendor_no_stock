@@ -30,6 +30,7 @@
                     domain="vendor_id_domain"
                     readonly="'state' in ('sale', 'cancel')"
                     options='{"no_create": True}'
+                    attrs="{'invisible': [('vendor_id', '=', True)]}"
                 />
            </xpath>
         </field>

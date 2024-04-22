@@ -14,8 +14,8 @@ class TestSalePurchaseVendorNoStockBase(common.TransactionCase):
                 "detailed_type": "service",
                 "service_to_purchase": "True",
                 "seller_ids": [
-                    (0, 0, {"partner_id": cls.vendor_a.id, "min_qty": 1, "price": 20}),
-                    (0, 0, {"partner_id": cls.vendor_b.id, "min_qty": 1, "price": 10}),
+                    (0, 0, {"partner_id": cls.vendor_a.id, "min_qty": 1, "price": 40}),
+                    (0, 0, {"partner_id": cls.vendor_b.id, "min_qty": 1, "price": 50}),
                 ],
             }
         )
@@ -33,4 +33,5 @@ class TestSalePurchaseVendorNoStockBase(common.TransactionCase):
             with order_form.order_line.new() as line_form:
                 line_form.product_id = product
                 line_form.vendor_id = self.vendor_b
+
         return order_form.save()
