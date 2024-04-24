@@ -32,6 +32,13 @@ class SaleOrderLine(models.Model):
             )
             item.vendor_id_domain = domain
 
+    def _retrieve_purchase_partner(self):
+        res = super()._retrieve_purchase_partner()
+        self.ensure_one()
+        if self.vendor_id:
+            return self.vendor_id
+        return res
+
     def _prepare_procurement_values(self, group_id=False):
         """Inject in the procurement values the preferred vendor if any, and create
         supplierinfo record for it if it doesn't exist.
