@@ -28,7 +28,14 @@ Sale Purchase Vendor No Stock
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module allows you to select a vendor at the sale order line level
+This module allows you to select a vendor at the sale order line level.
+
+It automatically creates a PO with the selected vendor when the SO is
+confirmed if the selected product is a service, and the Subcontract
+Service option is checked.
+
+This module is based on the sale_purchase_force_vendor module, but
+without the stock module.
 
 **Table of contents**
 
@@ -38,13 +45,16 @@ This module allows you to select a vendor at the sale order line level
 Usage
 =====
 
-1. Go to *Sale -> Orders -> Quotations* and create a new Quotation.
-2. Create a new line with the following options:
+1. Go to *Sale -> Products -> Products -> new* and Product Type:
+   *service*, in the purchase tab, check Subcontract service and select
+   your desired vendors for the service.
+2. Go to *Sale -> Orders -> Quotations* and create a new Quotation.
+3. Create a new line with the following options:
 
-   -  \`Vendor\`: Vendor B.
+   -  \`Vendor\`: Your desired vendor.
 
-3. Confirm sale order.
-4. A new purchase order will have been created to Vendor B.
+4. Confirm sale order.
+5. A new purchase order will have been created to the selected vendor.
 
 Bug Tracker
 ===========
@@ -61,6 +71,11 @@ Credits
 
 Contributors
 ------------
+
+-  `Tecnativa <https://www.tecnativa.com>`__:
+
+   -  Víctor Martínez
+   -  Pedro M. Baeza
 
 -  `Binhex <https://binhex.cloud/>`__:
 
